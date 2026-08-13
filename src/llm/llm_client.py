@@ -16,6 +16,28 @@ class BaseLLM(ABC):
     def generate(self, prompt: str, system_prompt: Optional[str] = None, **kwargs) -> str:
         pass
 
+class GroqLLM(BaseLLM):
+    def __init__(self, api_key: str, model_name: str = "llama-3.3-70b-versatile"):
+        self.api_key = api_key
+        self.model_name = model_name
+        self.client = OpenAI(api_key=api_key, base_url="https://api.groq.com/openai/v1")
+
+    def generate(self, prompt: str, system_prompt: Optional[str] = None, **kwargs) -> str:
+        messages = []
+        if system_prompt:
+            messages.append({"role": "system", "content": system_prompt})
+            
+        messages.append({"role": "user", "content": prompt})
+
+        # print(f"[*] Gọi Groq ({self.model_name}) thực thi prompt...")
+        response = self.client.chat.completions.create(
+            model=self.model_name,
+            messages=messages,
+            temperature=kwargs.get("temperature", 0.0),
+            max_tokens=kwargs.get("max_tokens", 1500)
+        )
+        return response.choices[0].message.content
+
 class OpenAILLM(BaseLLM):
     def __init__(self, api_key: str, model_name: str = "gpt-4o-mini"):
         self.api_key = api_key
@@ -60,40 +82,6 @@ class ClaudeLLM(BaseLLM):
         print(f"[*] Gọi Claude ({self.model_name}) thực thi prompt...")
         return "[Claude Result Mock] Nội dung trả về từ Claude."
 
-class OllamaLLM(BaseLLM):
-    def __init__(self, model_name: str = "llama3", base_url: str = "http://localhost:11434"):
-        self.model_name = model_name
-        self.base_url = base_url
-
-    def generate(self, prompt: str, system_prompt: Optional[str] = None, **kwargs) -> str:
-        url = f"{self.base_url}/api/generate"
-        
-        full_prompt = prompt
-        if system_prompt:
-            full_prompt = f"{system_prompt}\n\n{prompt}"
-            
-        payload = {
-            "model": self.model_name,
-            "prompt": full_prompt,
-            "stream": False,
-            **kwargs
-        }
-        
-        try:
-            # Timeout 180s để model có đủ thời gian load vào RAM lần đầu
-            response = requests.post(url, json=payload, timeout=kwargs.get("timeout", 180))
-            response.raise_for_status()
-            data = response.json()
-            return data.get("response", "")
-        except requests.exceptions.ConnectionError:
-            raise Exception("Không thể kết nối tới Ollama. Hãy chắc chắn Ollama đang chạy (truy cập http://localhost:11434 để kiểm tra).")
-        except requests.exceptions.Timeout:
-            raise Exception(f"Model '{self.model_name}' không phản hồi sau thời gian quy định.")
-        except requests.exceptions.HTTPError as e:
-            raise Exception(f"Ollama trả lỗi HTTP {e.response.status_code}. Tên model '{self.model_name}' có thể không đúng.")
-        except Exception as e:
-            raise Exception(f"Lỗi không xác định khi gọi Ollama: {str(e)}")
-
 
 class LLMFactory:
     """
@@ -108,7 +96,7 @@ class LLMFactory:
             return GeminiLLM(api_key, model_name or "gemini-1.5-flash")
         elif provider == "claude":
             return ClaudeLLM(api_key, model_name or "claude-3-haiku-20240307")
-        elif provider == "ollama":
-            return OllamaLLM(model_name=model_name or "llama3")
+        elif provider == "groq":
+            return GroqLLM(api_key, model_name or "llama-3.3-70b-versatile")
         else:
             raise ValueError(f"Không hỗ trợ provider LLM: {provider}")

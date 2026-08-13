@@ -5,12 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const sendBtn = document.getElementById('sendBtn');
     const modelSelect = document.getElementById('modelSelect');
     const newChatBtn = document.getElementById('newChatBtn');
-    const ollamaStatus = document.getElementById('ollamaStatus');
+    const llmStatus = document.getElementById('llmStatus');
 
-    // --- Auto-fetch danh sách model từ Ollama ---
-    async function fetchOllamaStatus() {
+    // --- Auto-fetch danh sách model từ API ---
+    async function fetchLLMStatus() {
         try {
-            const res = await fetch('/api/ollama-status');
+            const res = await fetch('/api/llm-status');
             const data = await res.json();
 
             if (data.status === 'running' && data.models.length > 0) {
@@ -22,22 +22,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     opt.textContent = m;
                     modelSelect.appendChild(opt);
                 });
-                ollamaStatus.innerHTML = '🟢 Ollama đang chạy';
-                ollamaStatus.className = 'status-badge online';
+                llmStatus.innerHTML = '🟢 Sẵn sàng (Groq)';
+                llmStatus.className = 'status-badge online';
             } else {
-                modelSelect.innerHTML = '<option value="" disabled selected>❌ Ollama chưa chạy</option>';
-                ollamaStatus.innerHTML = '🔴 Không kết nối được';
-                ollamaStatus.className = 'status-badge offline';
+                modelSelect.innerHTML = '<option value="" disabled selected>❌ Thiếu API Key</option>';
+                llmStatus.innerHTML = '🔴 Lỗi cấu hình';
+                llmStatus.className = 'status-badge offline';
             }
         } catch (e) {
             modelSelect.innerHTML = '<option value="" disabled selected>❌ Lỗi kết nối</option>';
-            ollamaStatus.innerHTML = '🔴 Không kết nối';
-            ollamaStatus.className = 'status-badge offline';
+            llmStatus.innerHTML = '🔴 Không kết nối';
+            llmStatus.className = 'status-badge offline';
         }
     }
 
     // Gọi ngay khi load trang
-    fetchOllamaStatus();
+    fetchLLMStatus();
 
     // Tạo phần tử Loading
     function createLoadingIndicator() {

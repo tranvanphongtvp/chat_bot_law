@@ -1,7 +1,16 @@
 import sys
+import os
 from pathlib import Path
 import json
 import requests
+
+# Fix encoding cho Windows terminal (cp1258 không hỗ trợ đầy đủ Unicode tiếng Việt)
+os.environ["PYTHONIOENCODING"] = "utf-8"
+try:
+    sys.stdout.reconfigure(encoding='utf-8', errors='replace')
+    sys.stderr.reconfigure(encoding='utf-8', errors='replace')
+except Exception:
+    pass
 
 # Cấu hình đường dẫn
 project_root = Path(__file__).parent.parent.parent
@@ -12,13 +21,17 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 import pickle
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from src.embedding.providers import HuggingFaceEmbeddingProvider
 from src.vectordb.vector_store import ChromaDBStore
 from src.retrieval.retriever import AdvancedRetriever
 from src.retrieval.parent_child_store import ParentChildStore
 from src.llm.llm_client import LLMFactory
-from src.promtpts.promt_templates import RAG_QA_PROMPT, SYSTEM_PROMPT_DEFAULT
+from src.prompts.promt_templates import RAG_QA_PROMPT, SYSTEM_PROMPT_DEFAULT
 
 app = FastAPI(title="Vietnamese Legal RAG Chatbot")
 
@@ -56,22 +69,19 @@ except Exception as e:
     print(f"[!] Lỗi khi khởi tạo RAG: {e}")
     retriever = None
 
-OLLAMA_BASE_URL = "http://localhost:11434"
-
 # --- API Models ---
 class ChatRequest(BaseModel):
     query: str
-    model: str = "llama3" # Default model trong Ollama
+    model: str = "llama-3.3-70b-versatile" # Default model Groq
 
-@app.get("/api/ollama-status")
-def check_ollama_status():
-    """Kiểm tra trạng thái kết nối Ollama và liệt kê các model đang có."""
+@app.get("/api/llm-status")
+def check_llm_status():
+    """Kiểm tra trạng thái cấu hình Groq."""
     try:
-        r = requests.get(f"{OLLAMA_BASE_URL}/api/tags", timeout=5)
-        r.raise_for_status()
-        models_data = r.json()
-        models = [m["name"] for m in models_data.get("models", [])]
-        return {"status": "running", "models": models}
+        groq_key = os.getenv("GROQ_API_KEY")
+        if not groq_key or groq_key == "your_groq_api_key_here":
+            raise ValueError("Chưa cấu hình GROQ_API_KEY")
+        return {"status": "running", "models": ["llama-3.3-70b-versatile"]}
     except Exception as e:
         return {"status": "error", "message": str(e), "models": []}
 
@@ -121,7 +131,11 @@ def chat_with_bot(request: ChatRequest):
 
     # 3. Gọi LLM thông qua LLMFactory
     try:
-        llm = LLMFactory.create_llm(provider="ollama", model_name=request.model)
+        groq_key = os.getenv("GROQ_API_KEY")
+        if not groq_key or groq_key == "your_groq_api_key_here":
+            raise HTTPException(status_code=500, detail="Vui lòng cấu hình GROQ_API_KEY trong file .env")
+            
+        llm = LLMFactory.create_llm(provider="groq", api_key=groq_key, model_name=request.model)
         answer = llm.generate(prompt=prompt, system_prompt=SYSTEM_PROMPT_DEFAULT)
         
         return {
@@ -133,8 +147,8 @@ def chat_with_bot(request: ChatRequest):
         print(f"[!] {error_msg}")
         answer_text = f"❌ Lỗi: {error_msg}"
         
-        if "Không thể kết nối tới Ollama" in error_msg:
-            answer_text = f"❌ Lỗi kết nối Ollama: {error_msg}\n\n📄 Tuy nhiên, đây là các đoạn luật tôi tìm được:\n\n" + context_text
+        if "Không thể kết nối" in error_msg or "Vui lòng cấu hình" in error_msg:
+            answer_text = f"❌ Lỗi LLM: {error_msg}\n\n📄 Tuy nhiên, đây là các đoạn luật tôi tìm được:\n\n" + context_text
         elif "không phản hồi" in error_msg:
             answer_text = f"⏱️ Timeout: {error_msg}"
             

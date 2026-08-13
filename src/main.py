@@ -5,20 +5,20 @@ from embedding.providers import HuggingFaceEmbeddingProvider
 from vectordb.vector_store import ChromaDBStore
 from retrieval.retriever import AdvancedRetriever
 from llm.llm_client import LLMFactory
-from promtpts.promt_templates import SYSTEM_PROMPT_DEFAULT, RAG_QA_PROMPT
+from prompts.promt_templates import SYSTEM_PROMPT_DEFAULT, RAG_QA_PROMPT
 def main():
     print("="*50)
     print(" KHỞI ĐỘNG HỆ THỐNG CHATBOT LUẬT ".center(50, "="))
     print("="*50)
     # 1. Load Biến Môi Trường (API Keys)
     load_dotenv()
-    openai_key = os.getenv("OPENAI_API_KEY")
-    if not openai_key or openai_key == "YOUR_API_KEY_HERE":
-        print("[!] LỖI: Vui lòng cung cấp OPENAI_API_KEY trong file .env")
+    groq_key = os.getenv("GROQ_API_KEY")
+    if not groq_key or groq_key == "your_groq_api_key_here":
+        print("[!] LỖI: Vui lòng cung cấp GROQ_API_KEY trong file .env")
         return
-    # 2. Khởi tạo LLM Client (OpenAI)
-    print("[1/3] Đang kết nối tới OpenAI...")
-    llm = LLMFactory.create_llm(provider="openai", api_key=openai_key, model_name="gpt-4o-mini")
+    # 2. Khởi tạo LLM Client (Groq)
+    print("[1/3] Đang kết nối tới Groq (Llama 3.3)...")
+    llm = LLMFactory.create_llm(provider="groq", api_key=groq_key, model_name="llama-3.3-70b-versatile")
     # 3. Khởi tạo Embedding & VectorDB (Chroma)
     print("[2/3] Đang tải mô hình Embedding và VectorDB...")
     provider = HuggingFaceEmbeddingProvider(
