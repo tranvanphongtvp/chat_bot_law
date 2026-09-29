@@ -1,0 +1,396 @@
+[
+  {
+    "id": "TC001",
+    "question": "Điều 5 Luật Đất đai 2024 quy định gì về người sử dụng đất?",
+    "ground_truth_answer": "Điều 5 Luật Đất đai 2024 quy định về người sử dụng đất bao gồm: tổ chức trong nước, cá nhân trong nước, cộng đồng dân cư, tổ chức tôn giáo, người Việt Nam định cư ở nước ngoài, tổ chức kinh tế có vốn đầu tư nước ngoài, cơ quan đại diện ngoại giao, tổ chức quốc tế.",
+    "ground_truth_contexts": [
+      "Điều 5. Người sử dụng đất"
+    ],
+    "expected_source_docs": ["Luat_31_2024_QH15"],
+    "category": "lookup",
+    "difficulty": "easy"
+  },
+  {
+    "id": "TC002",
+    "question": "Quyền và nghĩa vụ của người lao động được quy định tại Điều nào trong Bộ luật Lao động 2019?",
+    "ground_truth_answer": "Quyền và nghĩa vụ của người lao động được quy định tại Điều 5 Bộ luật Lao động 2019, bao gồm các quyền như: làm việc, tự do lựa chọn việc làm, nơi làm việc, nghề nghiệp; hưởng lương phù hợp với trình độ; được bảo hộ lao động; nghỉ theo chế độ; thành lập tổ chức đại diện.",
+    "ground_truth_answer_keywords": ["Điều 5", "quyền", "nghĩa vụ", "người lao động"],
+    "ground_truth_contexts": [
+      "Điều 5. Quyền và nghĩa vụ của người lao động"
+    ],
+    "expected_source_docs": ["BoLuat_BL_lao_dong_2019"],
+    "category": "lookup",
+    "difficulty": "easy"
+  },
+  {
+    "id": "TC003",
+    "question": "Thế nào là hợp đồng dân sự vô hiệu theo Bộ luật Dân sự 2015?",
+    "ground_truth_answer": "Theo Bộ luật Dân sự 2015, giao dịch dân sự vô hiệu khi vi phạm điều kiện có hiệu lực quy định tại Điều 117, bao gồm: chủ thể không có năng lực hành vi dân sự phù hợp, mục đích và nội dung vi phạm điều cấm của luật hoặc trái đạo đức xã hội, ý chí của chủ thể không tự nguyện, hoặc hình thức không tuân thủ quy định.",
+    "ground_truth_contexts": [
+      "Điều 122. Giao dịch dân sự vô hiệu",
+      "Điều 117. Điều kiện có hiệu lực của giao dịch dân sự"
+    ],
+    "expected_source_docs": ["BoLuat_BL_dan_su_2015"],
+    "category": "reasoning",
+    "difficulty": "medium"
+  },
+  {
+    "id": "TC004",
+    "question": "Hình phạt tù có thời hạn theo Bộ luật Hình sự 2015 được quy định như thế nào?",
+    "ground_truth_answer": "Theo Bộ luật Hình sự 2015, hình phạt tù có thời hạn là buộc người bị kết án phải chấp hành hình phạt tại cơ sở giam giữ trong một thời hạn nhất định. Tù có thời hạn đối với một tội phạm từ 03 tháng đến 20 năm. Trường hợp phạm nhiều tội, tổng hình phạt không quá 30 năm.",
+    "ground_truth_contexts": [
+      "Điều 38. Tù có thời hạn"
+    ],
+    "expected_source_docs": ["BoLuat_BL_hinh_su_2015"],
+    "category": "lookup",
+    "difficulty": "easy"
+  },
+  {
+    "id": "TC005",
+    "question": "So sánh quy định về quyền sử dụng đất giữa Luật Đất đai 2024 và Nghị định 230/2025/NĐ-CP?",
+    "ground_truth_answer": "Luật Đất đai 2024 quy định các nguyên tắc chung về quyền sử dụng đất, trong khi Nghị định 230/2025/NĐ-CP là văn bản hướng dẫn chi tiết thi hành Luật Đất đai 2024, quy định cụ thể các thủ tục, trình tự thực hiện các quyền sử dụng đất.",
+    "ground_truth_contexts": [
+      "Luật Đất đai 2024",
+      "Nghị định 230/2025/NĐ-CP"
+    ],
+    "expected_source_docs": ["Luat_31_2024_QH15", "Luat_230_2025_ND_CP"],
+    "category": "comparison",
+    "difficulty": "hard"
+  },
+  {
+    "id": "TC006",
+    "question": "Một người 16 tuổi có được ký hợp đồng lao động không?",
+    "ground_truth_answer": "Theo Bộ luật Lao động 2019, người từ đủ 15 tuổi đến chưa đủ 18 tuổi có thể ký hợp đồng lao động nhưng phải có sự đồng ý bằng văn bản của người đại diện theo pháp luật. Công việc phải phù hợp với sức khỏe và không thuộc danh mục công việc cấm sử dụng lao động chưa thành niên.",
+    "ground_truth_contexts": [
+      "Điều 143. Lao động chưa thành niên",
+      "Điều 18. Giao kết hợp đồng lao động"
+    ],
+    "expected_source_docs": ["BoLuat_BL_lao_dong_2019"],
+    "category": "reasoning",
+    "difficulty": "medium"
+  },
+  {
+    "id": "TC007",
+    "question": "Điều kiện để thành lập doanh nghiệp theo Luật Doanh nghiệp 2020 là gì?",
+    "ground_truth_answer": "Theo Luật Doanh nghiệp 2020, mọi tổ chức, cá nhân có quyền thành lập và quản lý doanh nghiệp tại Việt Nam, trừ các trường hợp bị cấm theo quy định. Người thành lập doanh nghiệp cần đăng ký kinh doanh theo quy định, có trụ sở chính, và đáp ứng các điều kiện về ngành nghề kinh doanh.",
+    "ground_truth_contexts": [
+      "Điều 17. Quyền thành lập, góp vốn, mua cổ phần, mua phần vốn góp và quản lý doanh nghiệp"
+    ],
+    "expected_source_docs": ["VanBan_Luat_doanh_nghiep_2020"],
+    "category": "lookup",
+    "difficulty": "easy"
+  },
+  {
+    "id": "TC008",
+    "question": "Luật Giao dịch điện tử 2023 quy định gì về chữ ký điện tử?",
+    "ground_truth_answer": "Luật Giao dịch điện tử 2023 quy định chữ ký điện tử là chữ ký được tạo lập dưới dạng dữ liệu điện tử gắn liền hoặc kết hợp một cách logic với thông điệp dữ liệu để xác nhận chủ thể ký và sự đồng ý của chủ thể đó với nội dung thông điệp dữ liệu.",
+    "ground_truth_contexts": [
+      "Chữ ký điện tử"
+    ],
+    "expected_source_docs": ["Luat_20_2023_QH15"],
+    "category": "lookup",
+    "difficulty": "easy"
+  },
+  {
+    "id": "TC009",
+    "question": "Các quy định về thuế chuyển nhượng quyền sử dụng đất theo Thông tư 89/2024/TT-BTC?",
+    "ground_truth_answer": "Thông tư 89/2024/TT-BTC hướng dẫn về tài chính đất đai, bao gồm các quy định về nghĩa vụ tài chính khi chuyển nhượng quyền sử dụng đất, cách tính thuế, phí và lệ phí liên quan.",
+    "ground_truth_contexts": [
+      "Thông tư 89/2024/TT-BTC"
+    ],
+    "expected_source_docs": ["VanBan_89_2024_TT_BTC"],
+    "category": "lookup",
+    "difficulty": "medium"
+  },
+  {
+    "id": "TC010",
+    "question": "Theo Luật Đầu tư 2020, những ngành nghề nào bị cấm đầu tư kinh doanh?",
+    "ground_truth_answer": "Theo Luật Đầu tư 2020, các ngành nghề bị cấm đầu tư kinh doanh bao gồm: kinh doanh chất ma túy, kinh doanh hóa chất và khoáng vật bị cấm, kinh doanh mẫu vật các loài thực vật, động vật hoang dã bị cấm, kinh doanh mại dâm, mua bán người, mua bán mô, bộ phận cơ thể người, và hoạt động liên quan đến sinh sản vô tính trên người.",
+    "ground_truth_contexts": [
+      "Điều 6. Ngành, nghề cấm đầu tư kinh doanh"
+    ],
+    "expected_source_docs": ["VanBan_64_2020_QH14"],
+    "category": "lookup",
+    "difficulty": "easy"
+  },
+  {
+    "id": "TC011",
+    "question": "Nghị định 40/2020/NĐ-CP hướng dẫn thi hành Luật Đầu tư như thế nào về thủ tục cấp giấy chứng nhận đăng ký đầu tư?",
+    "ground_truth_answer": "Nghị định 40/2020/NĐ-CP quy định chi tiết về thủ tục cấp giấy chứng nhận đăng ký đầu tư, bao gồm hồ sơ, trình tự, thời hạn giải quyết và thẩm quyền cấp giấy chứng nhận đăng ký đầu tư cho các dự án đầu tư.",
+    "ground_truth_contexts": [
+      "Nghị định 40/2020/NĐ-CP"
+    ],
+    "expected_source_docs": ["VanBan_40_2020_ND_CP"],
+    "category": "lookup",
+    "difficulty": "medium"
+  },
+  {
+    "id": "TC012",
+    "question": "So sánh quy định về hợp đồng lao động trong Bộ luật Lao động 2019 và Bộ luật Dân sự 2015?",
+    "ground_truth_answer": "Bộ luật Lao động 2019 quy định cụ thể về hợp đồng lao động (Điều 13-49) với các yêu cầu đặc thù như: phải bằng văn bản, có thời hạn tối đa, quyền đơn phương chấm dứt. Bộ luật Dân sự 2015 quy định về hợp đồng dân sự nói chung, áp dụng nguyên tắc tự do ý chí rộng hơn.",
+    "ground_truth_contexts": [
+      "Điều 13. Hợp đồng lao động",
+      "Hợp đồng dân sự"
+    ],
+    "expected_source_docs": ["BoLuat_BL_lao_dong_2019", "BoLuat_BL_dan_su_2015"],
+    "category": "comparison",
+    "difficulty": "hard"
+  },
+  {
+    "id": "TC013",
+    "question": "Một công ty muốn đầu tư vào ngành giáo dục tại Việt Nam cần tuân thủ quy định nào của Luật Đầu tư và Nghị định 120/2018/NĐ-CP?",
+    "ground_truth_answer": "Công ty cần tuân thủ các điều kiện đầu tư kinh doanh trong lĩnh vực giáo dục theo Luật Đầu tư 2020 (ngành nghề đầu tư có điều kiện). Nghị định 120/2018/NĐ-CP sửa đổi bổ sung một số điều của các nghị định liên quan đến đầu tư, quy định các điều kiện và thủ tục cụ thể.",
+    "ground_truth_contexts": [
+      "Luật Đầu tư",
+      "Nghị định 120/2018/NĐ-CP"
+    ],
+    "expected_source_docs": ["VanBan_64_2020_QH14", "VanBan_120_2018_ND_CP"],
+    "category": "multi_doc",
+    "difficulty": "hard"
+  },
+  {
+    "id": "TC014",
+    "question": "Thời hiệu khởi kiện vụ án dân sự là bao lâu theo Bộ luật Dân sự 2015?",
+    "ground_truth_answer": "Theo Bộ luật Dân sự 2015, thời hiệu khởi kiện để yêu cầu Tòa án giải quyết tranh chấp hợp đồng là 03 năm kể từ ngày người có quyền yêu cầu biết hoặc phải biết quyền và lợi ích hợp pháp của mình bị xâm phạm.",
+    "ground_truth_contexts": [
+      "Điều 429. Thời hiệu khởi kiện về hợp đồng"
+    ],
+    "expected_source_docs": ["BoLuat_BL_dan_su_2015"],
+    "category": "lookup",
+    "difficulty": "easy"
+  },
+  {
+    "id": "TC015",
+    "question": "Quy định về sa thải người lao động theo Bộ luật Lao động 2019?",
+    "ground_truth_answer": "Theo Bộ luật Lao động 2019, sa thải là hình thức xử lý kỷ luật lao động được áp dụng trong các trường hợp: người lao động có hành vi trộm cắp, tham ô, đánh bạc, cố ý gây thương tích, sử dụng ma túy tại nơi làm việc, tiết lộ bí mật kinh doanh, xâm phạm quyền sở hữu trí tuệ, hoặc bị xử lý kỷ luật kéo dài thời hạn nâng lương mà tái phạm trong thời gian chưa được xóa kỷ luật.",
+    "ground_truth_contexts": [
+      "Điều 125. Sa thải"
+    ],
+    "expected_source_docs": ["BoLuat_BL_lao_dong_2019"],
+    "category": "lookup",
+    "difficulty": "easy"
+  },
+  {
+    "id": "TC016",
+    "question": "Tội phạm có tổ chức theo Bộ luật Hình sự 2015 là gì? Có bao nhiêu loại đồng phạm?",
+    "ground_truth_answer": "Theo Bộ luật Hình sự 2015, phạm tội có tổ chức là hình thức đồng phạm có sự câu kết chặt chẽ giữa những người cùng thực hiện tội phạm. Đồng phạm gồm: người tổ chức, người thực hành, người xúi giục, người giúp sức.",
+    "ground_truth_contexts": [
+      "Điều 17. Đồng phạm"
+    ],
+    "expected_source_docs": ["BoLuat_BL_hinh_su_2015"],
+    "category": "reasoning",
+    "difficulty": "medium"
+  },
+  {
+    "id": "TC017",
+    "question": "Quy định về thu hồi đất và bồi thường thiệt hại theo Luật Đất đai 2024 và Thông tư 89/2024/TT-BTC có những điểm gì đáng chú ý?",
+    "ground_truth_answer": "Luật Đất đai 2024 quy định về các trường hợp thu hồi đất, nguyên tắc bồi thường, hỗ trợ, tái định cư. Thông tư 89/2024/TT-BTC hướng dẫn chi tiết về nghĩa vụ tài chính, cách tính giá đất để bồi thường.",
+    "ground_truth_contexts": [
+      "Thu hồi đất",
+      "Bồi thường"
+    ],
+    "expected_source_docs": ["Luat_31_2024_QH15", "VanBan_89_2024_TT_BTC"],
+    "category": "multi_doc",
+    "difficulty": "hard"
+  },
+  {
+    "id": "TC018",
+    "question": "Luật Biển Đảo Việt Nam 2023 quy định gì về chủ quyền biển đảo?",
+    "ground_truth_answer": "Dựa trên các tài liệu hiện có, tôi chưa tìm thấy thông tin cụ thể về Luật Biển Đảo Việt Nam 2023 để trả lời câu hỏi này.",
+    "ground_truth_contexts": [],
+    "expected_source_docs": [],
+    "category": "negative",
+    "difficulty": "easy",
+    "expected_rejection": true
+  },
+  {
+    "id": "TC019",
+    "question": "Thuế thu nhập cá nhân năm 2025 được tính như thế nào?",
+    "ground_truth_answer": "Dựa trên các tài liệu hiện có, tôi chưa tìm thấy thông tin cụ thể về thuế thu nhập cá nhân năm 2025 để trả lời câu hỏi này.",
+    "ground_truth_contexts": [],
+    "expected_source_docs": [],
+    "category": "negative",
+    "difficulty": "easy",
+    "expected_rejection": true
+  },
+  {
+    "id": "TC020",
+    "question": "Luật Bảo vệ môi trường 2020 quy định mức phạt cho hành vi xả thải trái phép là bao nhiêu?",
+    "ground_truth_answer": "Dựa trên các tài liệu hiện có, tôi chưa tìm thấy thông tin cụ thể về Luật Bảo vệ môi trường 2020 và mức phạt xả thải trái phép để trả lời câu hỏi này.",
+    "ground_truth_contexts": [],
+    "expected_source_docs": [],
+    "category": "negative",
+    "difficulty": "easy",
+    "expected_rejection": true
+  },
+  {
+    "id": "TC021",
+    "question": "Bitcoin có hợp pháp tại Việt Nam không?",
+    "ground_truth_answer": "Dựa trên các tài liệu hiện có, tôi chưa tìm thấy thông tin cụ thể về quy định pháp luật liên quan đến Bitcoin tại Việt Nam để trả lời câu hỏi này.",
+    "ground_truth_contexts": [],
+    "expected_source_docs": [],
+    "category": "negative",
+    "difficulty": "easy",
+    "expected_rejection": true
+  },
+  {
+    "id": "TC022",
+    "question": "Quy định về an ninh mạng theo Luật An ninh mạng 2018 có gì?",
+    "ground_truth_answer": "Dựa trên các tài liệu hiện có, tôi chưa tìm thấy thông tin cụ thể để trả lời câu hỏi này.",
+    "ground_truth_contexts": [],
+    "expected_source_docs": [],
+    "category": "negative",
+    "difficulty": "easy",
+    "expected_rejection": true
+  },
+  {
+    "id": "TC023",
+    "question": "Khi nào thì bị tù?",
+    "ground_truth_answer": "Câu hỏi chưa rõ ràng. Theo Bộ luật Hình sự 2015, hình phạt tù được áp dụng khi một người bị kết án về tội phạm. Hình phạt tù bao gồm tù có thời hạn và tù chung thân tùy theo tính chất, mức độ nguy hiểm của tội phạm.",
+    "ground_truth_contexts": [
+      "Hình phạt tù"
+    ],
+    "expected_source_docs": ["BoLuat_BL_hinh_su_2015"],
+    "category": "ambiguous",
+    "difficulty": "medium"
+  },
+  {
+    "id": "TC024",
+    "question": "Luật đất đai nói gì?",
+    "ground_truth_answer": "Câu hỏi chưa cụ thể. Luật Đất đai 2024 là văn bản pháp luật quy định về chế độ sở hữu đất đai, quyền và nghĩa vụ của người sử dụng đất, quản lý nhà nước về đất đai, thu hồi đất, bồi thường, giải quyết tranh chấp đất đai.",
+    "ground_truth_contexts": [
+      "Luật Đất đai 2024"
+    ],
+    "expected_source_docs": ["Luat_31_2024_QH15"],
+    "category": "ambiguous",
+    "difficulty": "medium"
+  },
+  {
+    "id": "TC025",
+    "question": "Người nước ngoài có quyền mua đất tại Việt Nam theo Luật Đất đai 2024 không? Và điều kiện đầu tư của họ theo Luật Đầu tư là gì?",
+    "ground_truth_answer": "Theo Luật Đất đai 2024, người nước ngoài không có quyền sử dụng đất dưới hình thức giao đất có thu tiền sử dụng đất hoặc nhận chuyển nhượng quyền sử dụng đất ở. Tuy nhiên, tổ chức kinh tế có vốn đầu tư nước ngoài có thể thuê đất. Theo Luật Đầu tư, nhà đầu tư nước ngoài cần thực hiện thủ tục cấp giấy chứng nhận đăng ký đầu tư.",
+    "ground_truth_contexts": [
+      "Người sử dụng đất",
+      "Nhà đầu tư nước ngoài"
+    ],
+    "expected_source_docs": ["Luat_31_2024_QH15", "VanBan_64_2020_QH14"],
+    "category": "multi_doc",
+    "difficulty": "hard"
+  },
+  {
+    "id": "TC026",
+    "question": "Trách nhiệm hình sự của pháp nhân thương mại được quy định như thế nào trong Bộ luật Hình sự 2015?",
+    "ground_truth_answer": "Theo Bộ luật Hình sự 2015, pháp nhân thương mại phải chịu trách nhiệm hình sự khi: hành vi phạm tội được thực hiện nhân danh pháp nhân; hành vi phạm tội được thực hiện vì lợi ích của pháp nhân; hành vi phạm tội được thực hiện có sự chỉ đạo, điều hành hoặc chấp thuận của pháp nhân.",
+    "ground_truth_contexts": [
+      "Điều 75. Điều kiện chịu trách nhiệm hình sự của pháp nhân thương mại"
+    ],
+    "expected_source_docs": ["BoLuat_BL_hinh_su_2015"],
+    "category": "reasoning",
+    "difficulty": "medium"
+  },
+  {
+    "id": "TC027",
+    "question": "Bộ luật Dân sự 2015 quy định thế nào về quyền sở hữu tài sản và thừa kế?",
+    "ground_truth_answer": "Bộ luật Dân sự 2015 quy định quyền sở hữu bao gồm quyền chiếm hữu, quyền sử dụng và quyền định đoạt tài sản. Về thừa kế, luật quy định thừa kế theo di chúc và thừa kế theo pháp luật.",
+    "ground_truth_contexts": [
+      "Quyền sở hữu",
+      "Thừa kế"
+    ],
+    "expected_source_docs": ["BoLuat_BL_dan_su_2015"],
+    "category": "multi_doc",
+    "difficulty": "medium"
+  },
+  {
+    "id": "TC028",
+    "question": "So sánh hình phạt đối với tội trộm cắp và tội cướp tài sản theo Bộ luật Hình sự 2015?",
+    "ground_truth_answer": "Theo Bộ luật Hình sự 2015, tội trộm cắp tài sản (Điều 173) có hình phạt nhẹ hơn so với tội cướp tài sản (Điều 168) do tính chất nguy hiểm khác nhau. Tội trộm cắp phạt tù từ 6 tháng đến 20 năm, trong khi tội cướp phạt tù từ 3 năm đến chung thân.",
+    "ground_truth_contexts": [
+      "Điều 173. Tội trộm cắp tài sản",
+      "Điều 168. Tội cướp tài sản"
+    ],
+    "expected_source_docs": ["BoLuat_BL_hinh_su_2015"],
+    "category": "comparison",
+    "difficulty": "medium"
+  },
+  {
+    "id": "TC029",
+    "question": "Nghị quyết 01/2016/NQ-HĐTP của Hội đồng thẩm phán TAND tối cao hướng dẫn gì?",
+    "ground_truth_answer": "Nghị quyết 01/2016/NQ-HĐTP hướng dẫn áp dụng một số quy định của pháp luật, cung cấp giải thích và hướng dẫn chi tiết cho việc áp dụng pháp luật thống nhất trong xét xử.",
+    "ground_truth_contexts": [
+      "Nghị quyết 01/2016"
+    ],
+    "expected_source_docs": ["NghiQuyet_01_2016_HDTP", "VanBanGoc_NGHI_QUYET_01.2016"],
+    "category": "lookup",
+    "difficulty": "medium"
+  },
+  {
+    "id": "TC030",
+    "question": "Quyết định 35/2019/QĐ-UBND quy định về vấn đề gì?",
+    "ground_truth_answer": "Quyết định 35/2019/QĐ-UBND là quyết định của UBND quy định các vấn đề quản lý nhà nước ở địa phương.",
+    "ground_truth_contexts": [
+      "Quyết định 35/2019/QĐ-UBND"
+    ],
+    "expected_source_docs": ["VanBan_35_2019_QD_UBND"],
+    "category": "lookup",
+    "difficulty": "easy"
+  },
+  {
+    "id": "TC031",
+    "question": "Điều kiện để hợp đồng lao động có hiệu lực theo Bộ luật Lao động 2019 và nguyên tắc giao kết hợp đồng theo Bộ luật Dân sự 2015 có gì tương đồng?",
+    "ground_truth_answer": "Cả hai đều yêu cầu: tự nguyện, bình đẳng, thiện chí, hợp tác và trung thực. Bộ luật Lao động 2019 bổ sung thêm nguyên tắc không được ép buộc hoặc cản trở người lao động giao kết hợp đồng.",
+    "ground_truth_contexts": [
+      "Nguyên tắc giao kết hợp đồng lao động",
+      "Nguyên tắc giao kết hợp đồng dân sự"
+    ],
+    "expected_source_docs": ["BoLuat_BL_lao_dong_2019", "BoLuat_BL_dan_su_2015"],
+    "category": "comparison",
+    "difficulty": "hard"
+  },
+  {
+    "id": "TC032",
+    "question": "Nếu một người bị tai nạn lao động, người sử dụng lao động có trách nhiệm gì theo Bộ luật Lao động 2019?",
+    "ground_truth_answer": "Theo Bộ luật Lao động 2019, người sử dụng lao động có trách nhiệm: sơ cứu, cấp cứu kịp thời; thanh toán chi phí y tế; trả đủ tiền lương trong thời gian điều trị; bồi thường hoặc trợ cấp cho người lao động bị tai nạn lao động, bệnh nghề nghiệp.",
+    "ground_truth_contexts": [
+      "Tai nạn lao động",
+      "Trách nhiệm của người sử dụng lao động"
+    ],
+    "expected_source_docs": ["BoLuat_BL_lao_dong_2019"],
+    "category": "reasoning",
+    "difficulty": "medium"
+  },
+  {
+    "id": "TC033",
+    "question": "Phân biệt giữa tội phạm ít nghiêm trọng, nghiêm trọng, rất nghiêm trọng và đặc biệt nghiêm trọng theo Bộ luật Hình sự 2015?",
+    "ground_truth_answer": "Theo Điều 9 Bộ luật Hình sự 2015: Tội phạm ít nghiêm trọng có mức phạt tù cao nhất đến 3 năm; nghiêm trọng đến 7 năm; rất nghiêm trọng đến 15 năm; đặc biệt nghiêm trọng trên 15 năm, tù chung thân hoặc tử hình.",
+    "ground_truth_contexts": [
+      "Điều 9. Phân loại tội phạm"
+    ],
+    "expected_source_docs": ["BoLuat_BL_hinh_su_2015"],
+    "category": "comparison",
+    "difficulty": "easy"
+  },
+  {
+    "id": "TC034",
+    "question": "Người sử dụng đất muốn chuyển mục đích sử dụng đất theo Luật Đất đai 2024 cần làm những gì? Có liên quan gì đến Nghị định 230/2025 và Thông tư 89/2024 không?",
+    "ground_truth_answer": "Theo Luật Đất đai 2024, việc chuyển mục đích sử dụng đất phải được cơ quan nhà nước có thẩm quyền cho phép. Nghị định 230/2025/NĐ-CP quy định chi tiết thủ tục và hồ sơ. Thông tư 89/2024/TT-BTC hướng dẫn về nghĩa vụ tài chính khi chuyển mục đích sử dụng đất.",
+    "ground_truth_contexts": [
+      "Chuyển mục đích sử dụng đất",
+      "Nghị định 230/2025",
+      "Thông tư 89/2024"
+    ],
+    "expected_source_docs": ["Luat_31_2024_QH15", "Luat_230_2025_ND_CP", "VanBan_89_2024_TT_BTC"],
+    "category": "multi_doc",
+    "difficulty": "hard"
+  },
+  {
+    "id": "TC035",
+    "question": "Điều 101 trong Bộ luật Tố tụng dân sự 2015 quy định những gì?",
+    "ground_truth_answer": "Điều 101 Bộ luật Tố tụng dân sự 2015 (số hiệu 101/2015/QH13 Phần 3) quy định về vấn đề tố tụng dân sự.",
+    "ground_truth_contexts": [
+      "Bộ luật 101/2015/QH13 Phần 3"
+    ],
+    "expected_source_docs": ["BoLuat_101_2015_QH13_P3"],
+    "category": "lookup",
+    "difficulty": "medium"
+  }
+]

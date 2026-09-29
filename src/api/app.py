@@ -72,7 +72,7 @@ except Exception as e:
 # --- API Models ---
 class ChatRequest(BaseModel):
     query: str
-    model: str = "llama-3.3-70b-versatile" # Default model Groq
+    model: str = "openai/gpt-oss-120b" # Default model Groq
 
 @app.get("/api/llm-status")
 def check_llm_status():
@@ -81,7 +81,7 @@ def check_llm_status():
         groq_key = os.getenv("GROQ_API_KEY")
         if not groq_key or groq_key == "your_groq_api_key_here":
             raise ValueError("Chưa cấu hình GROQ_API_KEY")
-        return {"status": "running", "models": ["llama-3.3-70b-versatile"]}
+        return {"status": "running", "models": ["openai/gpt-oss-120b"]}
     except Exception as e:
         return {"status": "error", "message": str(e), "models": []}
 

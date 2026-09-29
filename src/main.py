@@ -17,8 +17,8 @@ def main():
         print("[!] LỖI: Vui lòng cung cấp GROQ_API_KEY trong file .env")
         return
     # 2. Khởi tạo LLM Client (Groq)
-    print("[1/3] Đang kết nối tới Groq (Llama 3.3)...")
-    llm = LLMFactory.create_llm(provider="groq", api_key=groq_key, model_name="llama-3.3-70b-versatile")
+    print("[1/3] Đang kết nối tới Groq (gpt-oss-120b)...")
+    llm = LLMFactory.create_llm(provider="groq", api_key=groq_key, model_name="openai/gpt-oss-120b")
     # 3. Khởi tạo Embedding & VectorDB (Chroma)
     print("[2/3] Đang tải mô hình Embedding và VectorDB...")
     provider = HuggingFaceEmbeddingProvider(

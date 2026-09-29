@@ -17,7 +17,7 @@ class BaseLLM(ABC):
         pass
 
 class GroqLLM(BaseLLM):
-    def __init__(self, api_key: str, model_name: str = "llama-3.3-70b-versatile"):
+    def __init__(self, api_key: str, model_name: str = "openai/gpt-oss-120b"):
         self.api_key = api_key
         self.model_name = model_name
         self.client = OpenAI(api_key=api_key, base_url="https://api.groq.com/openai/v1")
@@ -97,6 +97,6 @@ class LLMFactory:
         elif provider == "claude":
             return ClaudeLLM(api_key, model_name or "claude-3-haiku-20240307")
         elif provider == "groq":
-            return GroqLLM(api_key, model_name or "llama-3.3-70b-versatile")
+            return GroqLLM(api_key, model_name or "openai/gpt-oss-120b")
         else:
             raise ValueError(f"Không hỗ trợ provider LLM: {provider}")
